@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: rails-bookbnb
+    env: ruby
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: bookbnb-db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+
+databases:
+  - name: bookbnb-db
+    databaseName: bookbnb
+    user: bookbnb
