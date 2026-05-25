@@ -76,17 +76,11 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
-    autoprefixer-rails (10.4.15.0)
-      execjs (~> 2)
     aws_cf_signer (0.1.3)
     bcrypt (3.1.19)
-    bigdecimal (4.1.2)
     bindex (0.8.1)
     bootsnap (1.16.0)
       msgpack (~> 1.2)
-    bootstrap (5.3.2)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 2.11.8, < 3)
     builder (3.2.4)
     capybara (3.39.2)
       addressable
@@ -102,9 +96,6 @@ GEM
       rest-client (>= 2.0.0)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
-    dartsass-rails (0.5.1)
-      railties (>= 6.0.0)
-      sass-embedded (~> 1.63)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -122,15 +113,10 @@ GEM
       dotenv (= 2.8.1)
       railties (>= 3.2)
     erubi (1.12.0)
-    execjs (2.9.1)
+    ffi (1.17.4-x64-mingw-ucrt)
+    ffi (1.17.4-x86_64-linux-gnu)
     globalid (1.2.1)
       activesupport (>= 6.1)
-    google-protobuf (4.33.6-x64-mingw-ucrt)
-      bigdecimal
-      rake (>= 13)
-    google-protobuf (4.33.6-x86_64-linux-gnu)
-      bigdecimal
-      rake (>= 13)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
@@ -185,7 +171,6 @@ GEM
     pg_search (2.3.6)
       activerecord (>= 5.2)
       activesupport (>= 5.2)
-    popper_js (2.11.8)
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
@@ -240,10 +225,14 @@ GEM
       netrc (~> 0.8)
     rexml (3.2.6)
     rubyzip (2.3.2)
-    sass-embedded (1.100.0-x64-mingw-ucrt)
-      google-protobuf (~> 4.31)
-    sass-embedded (1.100.0-x86_64-linux-gnu)
-      google-protobuf (~> 4.31)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.14.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -259,6 +248,7 @@ GEM
       railties (>= 6.0.0)
     stringio (3.0.8)
     thor (1.3.0)
+    tilt (2.7.0)
     timeout (0.4.0)
     turbo-rails (1.5.0)
       actionpack (>= 6.0.0)
@@ -292,12 +282,9 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  autoprefixer-rails
   bootsnap
-  bootstrap (~> 5.2)
   capybara
   cloudinary
-  dartsass-rails
   debug
   devise
   dotenv-rails
@@ -308,6 +295,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-timeout
   rails (~> 7.0.8)
+  sassc-rails
   selenium-webdriver
   simple_form!
   sprockets-rails
