@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row d-flex justify-content-center search_bar">
+    <form class="d-flex col-md-6" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="search-btn btn btn-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+  </div>
+  <h2>All books</h2>
+  <div class="cards">
+    <% @books.each do |book| %>
+      <div class="card">
+        <%= image_tag "https://images.unsplash.com/photo-1568819297129-80fd50360f8e?auto=format&fit=crop&q=80&w=1936&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Le Wagon", class: "img-book" %>
+        <div class="book-details">
+          <h5><%= book.title %></h5>
+          <p><%= book.author %></p>
+          <p>10 <i class="fa-solid fa-dollar-sign"></i></p>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+</div>

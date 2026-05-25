@@ -1,0 +1,15 @@
+<div class="container p-4">
+  <h2>Add a new book</h2>
+  <div class="form-new-book py-4">
+    <%= simple_form_for(@book) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :author %>
+      <%= f.input :category %>
+      <%= f.input :year %>
+      <%= f.input :price %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit "Create", class: "btn button-6 my-3" %>
+    <% end %>
+  </div>
+</div>

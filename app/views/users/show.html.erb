@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="my-5 text-center">Your profile</h1>
+  <div class="row">
+    <div class="col-6">
+      <% if current_user.photo.key? %>
+        <%= cl_image_tag current_user.photo.key, class: "img-fluid", width: 500, crop: :fill, alt: "dropdown menu"%>
+      <% else %>
+        <%= image_tag "none_image_user.png", class: "img-fluid", width: 500 %>
+      <% end %>
+      <%# <%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill, class: "img-fluid" %>
+
+    </div>
+    <div class="col-6 ps-5">
+      <h5>Name</h5>
+      <p><%= current_user.name %></p>
+
+      <h5>Email</h5>
+      <p><%= current_user.email %></p>
+
+      <h5>Password</h5>
+      <p>************</p>
+
+      <%= link_to "Edit", edit_user_path(current_user), class: "btn btn-secondary" %>
+      <%= link_to "Back", root_path, class: "btn btn-secondary" %>
+
+
+    </div>
+  </div>
+</div>

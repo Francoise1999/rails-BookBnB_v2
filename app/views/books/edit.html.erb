@@ -1,0 +1,18 @@
+<h1>Editer les informations de ce livre</h1>
+
+
+   <%= simple_form_for(@book) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :description %>
+      <%= f.input :author %>
+      <%= f.input :category %>
+      <%= f.input :year %>
+      <%= f.input :price %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit %>
+    <% end %>
+
+
+<div>
+  <%= link_to "Back", book_path %>
+</div>

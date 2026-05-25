@@ -1,0 +1,39 @@
+<div class="container mb-4 pt-5">
+  <div class="book-show row">
+    <div class="description-book-show col-6 p-4 ">
+      <% if @book.photo.attached? %>
+        <%= cl_image_tag @book.photo.key, height: 400 %>
+      <% else %>
+        <%= image_tag "https://images.unsplash.com/photo-1568819297129-80fd50360f8e?auto=format&fit=crop&q=80&w=1936&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Le Wagon", class: "img-book" %>
+      <% end %>
+
+      <h1><strong><%= @book.title %>, <%= @book.author %></strong></h1>
+      <h3>Category: <%= @book.category %></h3>
+      <p>Description: <%= @book.description %></p>
+      <p><%= @book.price %>$</p>
+      <p><%= "Owned by #{@book.user.name}" %></p>
+
+    </div>
+  </div>
+</div>
+
+<p style="color: green"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <% if @book.user == current_user %>
+        <%= link_to "Update", edit_book_path(@book), class: "btn button-6 m-3" %>
+      <% end %>
+
+      <%= link_to "Main page", books_path, class: "btn button-6 m-3" %>
+      <% if @book.user == current_user %>
+        <%= link_to "Delete", book_path(@book), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn button-6 m-3" %>
+      <% end %>
+
+      <% if @book.user != current_user %>
+        <%= link_to "Rent this book", new_book_booking_path(@book), class: "btn button-6 m-3" %>
+      <% end %>
+    </div>
+  </div>
+</div>

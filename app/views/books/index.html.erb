@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row d-flex justify-content-center search_bar">
+    <%= form_with url: books_path, method: :get, class: "d-flex col-md-6" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Type a keyword"
+        %>
+      <button class="search-btn btn btn-success mx-3" type="submit">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
+    <% end %>
+  </div>
+
+  <h4>
+    Hello
+    <% if user_signed_in? %>
+      <%= current_user.name %>
+    <% end %>
+  </h4>
+
+  <div class="cards">
+    <% @books.each do |book| %>
+      <div class="card">
+
+        <% if book.photo.attached? %>
+          <%= cl_image_tag book.photo.key, height: 400, class: "img-book" %>
+        <% else %>
+          <%= image_tag "https://images.unsplash.com/photo-1568819297129-80fd50360f8e?auto=format&fit=crop&q=80&w=1936&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Book cover", class: "img-book" %>
+        <% end %>
+
+        <div class="book-details">
+          <div class="books-list-description">
+            <h5 class="card-title"><%= book.title %></h5>
+            <p class="card-text"><%= book.author %></p>
+            <p class="card-text"><%= book.price %> <i class="fa-solid fa-dollar-sign"></i></p>
+          </div>
+          <div class="books-links d-flex justify-content-between">
+            <%= link_to "Description", book_path(book), class: "btn button-6" %>
+            <% if user_signed_in? && current_user != book.user %>
+              <%= link_to "Rent this book", new_book_booking_path(book), class: "btn button-6" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
