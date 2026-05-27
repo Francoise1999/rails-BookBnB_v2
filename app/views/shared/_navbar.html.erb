@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="nav-logo">
       <%= link_to "/", class: "navbar-brand" do %>
-        <%= image_tag "logo_bookbnb.png" %>
+        <img src="/assets/logo_bookbnb.png" alt="BookBnB logo">
       <% end %>
       <strong class="img-logo-navbar">ookBnB</strong>
     </div>
@@ -24,10 +24,10 @@
 
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <% if current_user.photo.key? %>
+              <% if current_user.photo.attached? %>
                 <%= cl_image_tag current_user.photo.key, class: "avatar", width: 500, alt: "dropdown menu"%>
               <% else %>
-                <%= image_tag "none_image_user.png", class: "avatar" %>
+                <img src="/assets/none_image_user.png" class="avatar" alt="user">
               <% end %>
             </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
